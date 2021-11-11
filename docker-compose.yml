@@ -26,7 +26,7 @@ services:
     volumes:
       - files:/srv/web/files:ro
       - cache:/var/cache/nginx:rw
-      - certs:/etc/letsencrypt/live:ro
+      - certs:/etc/letsencrypt/live:rw
       - wellknown:/well-known:ro
 
   certbot:
