@@ -26,14 +26,14 @@ services:
     volumes:
       - files:/srv/web/files:ro
       - cache:/var/cache/nginx:rw
-      - certs:/etc/letsencrypt/live:rw
-      - wellknown:/var/lib/letsencrypt:rw
+      - certs:/etc/letsencrypt/live:ro
+      - wellknown:/well-known:ro
 
   certbot:
     build: docker/certbot
     volumes:
       - certs:/etc/letsencrypt/live:rw
-      - wellknown:/srv:rw
+      - wellknown:/well-known:rw
       - letsencrypt:/var/lib/letsencrypt:rw
 
 volumes:
