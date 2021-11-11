@@ -3,8 +3,9 @@ set -e
 
 cd "$(dirname $0)"
 
-docker-compose up \
+docker-compose \
     --project-name bugman \
+    up \
     --build \
     --remove-orphans \
     --detach
