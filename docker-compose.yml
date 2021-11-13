@@ -4,9 +4,6 @@ services:
     build:
       context: .
       dockerfile: docker/php/Dockerfile
-    # user: web
-    ports:
-      - "9000:9000"
     volumes:
       - storage:/srv/storage:rw
       - files:/srv/web/files:rw
