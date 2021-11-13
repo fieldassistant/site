@@ -1,0 +1,12 @@
+defaultPlacement: end
+enableVersioning: true
+handle: home
+name: Home
+propagationMethod: all
+siteSettings:
+  e21b82e3-7f96-484b-8415-d8443fd3b775: # Field Assistant
+    enabledByDefault: true
+    hasUrls: true
+    template: _index
+    uriFormat: __home__
+type: single

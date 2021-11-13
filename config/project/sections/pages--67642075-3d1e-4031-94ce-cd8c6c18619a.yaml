@@ -1,0 +1,15 @@
+defaultPlacement: end
+enableVersioning: true
+handle: pages
+name: Pages
+propagationMethod: all
+siteSettings:
+  e21b82e3-7f96-484b-8415-d8443fd3b775: # Field Assistant
+    enabledByDefault: true
+    hasUrls: true
+    template: _page
+    uriFormat: '{parent.uri}/{slug}'
+structure:
+  maxLevels: null
+  uid: 78342b72-4cc7-43fc-8f98-e3de55dde89a
+type: structure

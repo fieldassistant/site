@@ -1,0 +1,19 @@
+columnSuffix: nsgcpmdp
+contentColumnType: text
+fieldGroup: 5093d368-21f7-490b-b8a2-0ac99353bfae # Common
+handle: headline
+instructions: ''
+name: Headline
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

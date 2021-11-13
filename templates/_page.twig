@@ -1,0 +1,23 @@
+{% extends "_layouts/page" %}
+
+{% set title = entry.headline ?: entry.title %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ title }}</h1>
+    </div>
+    {% for section in entry.sections.all() %}
+        <section class="section">
+            <div class="container">
+                <div class="content">
+                    {{ section.blockContent|raw }}
+                </div>
+            </div>
+        </section>
+    {% endfor %}
+    <!-- TODO: -->
+    <!-- site styles -->
+    <!-- icons/screenshots -->
+    <!-- getting started/tutorial -->
+    <!-- links to Bugs, Lou, Gwillz -->
+{% endblock %}
