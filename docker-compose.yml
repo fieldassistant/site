@@ -1,22 +1,28 @@
 version: "3.5"
 services:
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    user: ${USER_UID}
     volumes:
       - .:/srv:rw
+      - ./docker/env:/srv/.env:rw
 
-  db:
+  mariadb:
     image: mariadb:10.4
     environment:
-      MYSQL_ROOT_PASSWORD: abc123
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: bugman
+      MYSQL_USER: bugman
+      MYSQL_PASSWORD: bugman
     volumes:
       - db:/var/lib/mysql:rw
 
   nginx:
     build: nginx
     ports:
-      - "80:80"
-      - "443:443"
+      - "8080:8080"
     volumes:
       - .:/srv:ro
       - cache:/var/cache/nginx:rw

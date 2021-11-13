@@ -32,13 +32,25 @@ RUN set -xe \
     nodejs \
     npm
 
-COPY conf.d/*.ini /etc/php7/conf.d/
+COPY docker/conf.d/*.ini /etc/php7/conf.d/
 
 WORKDIR /srv
 
-
 # Application
 FROM base AS app
+
+# Listen on unix socket
+RUN echo -e "[global]\n\
+error_log = /proc/self/fd/2 \n\
+daemonize = no \n\
+[www]\n\
+pm = ondemand \n\
+pm.max_children = 5 \n\
+listen = 0.0.0.0:9000 \n\
+access.log = /proc/self/fd/2 \n\
+catch_workers_output = yes \n\
+" > /etc/php7/php-fpm.d/www.conf
+
 
 EXPOSE 9000
 CMD [ "/usr/sbin/php-fpm7", "-F" ]

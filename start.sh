@@ -3,6 +3,8 @@ set -e
 
 cd "$(dirname $0)"
 
+export USER_UID="$(id -u):$(id -g)"
+
 case "$1" in
     "up")
         shift 1
