@@ -32,7 +32,7 @@ RUN set -xe \
     nodejs \
     npm
 
-COPY docker/php/*.ini /etc/php7/conf.d/
+COPY conf.d/*.ini /etc/php7/conf.d/
 
 WORKDIR /srv
 

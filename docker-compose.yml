@@ -1,9 +1,7 @@
 version: "3.5"
 services:
   app:
-    build:
-      context: .
-      dockerfile: docker/php/Dockerfile
+    build: .
     volumes:
       - .:/srv:rw
 
@@ -15,7 +13,7 @@ services:
       - db:/var/lib/mysql:rw
 
   nginx:
-    build: docker/nginx
+    build: nginx
     ports:
       - "80:80"
       - "443:443"

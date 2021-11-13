@@ -9,7 +9,7 @@ umask 002
 echo "DH: pwd: $(pwd)"
 echo "DH: $(git --version)"
 
-./start.sh up || exit $?
+./docs/deploy.sh || exit $?
 
 echo
 echo "DH: Complete."
