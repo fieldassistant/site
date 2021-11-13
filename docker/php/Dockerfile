@@ -37,34 +37,8 @@ COPY docker/php/*.ini /etc/php7/conf.d/
 WORKDIR /srv
 
 
-# NPM dependencies
-FROM base AS npm
-
-COPY package.json package-lock.json /srv/
-RUN npm ci --ignore-scripts --no-optional --no-audit
-
-COPY gulpfile.js /srv/
-COPY patterns /srv/patterns
-RUN npm run build
-
-
-# Composer dependencies
-FROM base AS composer
-
-COPY composer.json composer.lock /srv/
-RUN composer install --no-scripts --no-dev
-
-
 # Application
 FROM base AS app
-
-COPY config/ /srv/config/
-COPY modules/ /srv/modules/
-COPY templates/ /srv/templates/
-COPY --from=npm /srv/web/css/ /srv/web/css/
-COPY --from=composer /srv/vendor/ /srv/vendor/
-
-RUN ls -lha /srv
 
 EXPOSE 9000
 CMD [ "/usr/sbin/php-fpm7", "-F" ]

@@ -5,8 +5,7 @@ services:
       context: .
       dockerfile: docker/php/Dockerfile
     volumes:
-      - storage:/srv/storage:rw
-      - files:/srv/web/files:rw
+      - .:/srv:rw
 
   db:
     image: mariadb:10.4
@@ -21,30 +20,9 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - files:/srv/web/files:ro
+      - .:/srv:ro
       - cache:/var/cache/nginx:rw
-      - certs:/etc/letsencrypt/live:rw
-      - wellknown:/acme:ro
-
-  certbot:
-    build: docker/certbot
-    volumes:
-      - certs:/etc/letsencrypt/live:rw
-      - wellknown:/acme:rw
-      - letsencrypt:/var/lib/letsencrypt:rw
 
 volumes:
-  # php
-  storage:
-  files:
-
-  # mariadb
   db:
-
-  # nginx
   cache:
-
-  # certbot
-  certs:
-  wellknown:
-  letsencrypt:
