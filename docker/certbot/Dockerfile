@@ -2,5 +2,5 @@ FROM certbot/certbot
 
 COPY certbot.sh .
 
-ENTRYPOINT []
-CMD ["/bin/sh", "certbot.sh"]
+ENTRYPOINT ["/bin/sh", "certbot.sh"]
+CMD ["renew"]
