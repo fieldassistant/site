@@ -1,0 +1,8 @@
+baseUrl: $PRIMARY_SITE_URL
+handle: default
+hasUrls: true
+language: en-AU
+name: 'Field Assistant'
+primary: true
+siteGroup: 477ba8bd-7405-463f-952f-01d908f23f98 # Field Assistant
+sortOrder: 1

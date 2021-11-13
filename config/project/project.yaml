@@ -1,0 +1,22 @@
+dateModified: 1636782737
+email:
+  fromEmail: me@gwilyn.com
+  fromName: 'Field Assistant'
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    477ba8bd-7405-463f-952f-01d908f23f98: 'Field Assistant' # Field Assistant
+    5093d368-21f7-490b-b8a2-0ac99353bfae: Common # Common
+    e21b82e3-7f96-484b-8415-d8443fd3b775: 'Field Assistant' # Field Assistant
+system:
+  edition: solo
+  live: true
+  name: 'Field Assistant'
+  schemaVersion: 3.7.8
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true
