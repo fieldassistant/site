@@ -2,5 +2,5 @@ FROM certbot/certbot
 
 COPY certbot.sh .
 
-ENTRYPOINT ["/bin/sh"]
-CMD ["certbot.sh"]
+ENTRYPOINT []
+CMD ["/bin/sh", "certbot.sh"]
