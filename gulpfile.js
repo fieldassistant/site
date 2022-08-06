@@ -9,24 +9,9 @@ const config = {
     "src": [
         "patterns/base.scss",
     ],
+    "watch": "patterns/**/*",
     "target": "web/css",
 };
-
-
-// A lovely little hack to 'discover' all the watched files.
-// This could also be smarter to map entry files to included files, so we can
-// rebuild only the necessary files from the watch() method.
-const watched = new Set();
-(function() {
-    const _render = sass.compiler.renderSync;
-    sass.compiler.renderSync = function(opts) {
-        const result = _render(opts);
-        for (let file of result.stats.includedFiles) {
-            watched.add(file);
-        }
-        return result;
-    };
-})();
 
 
 /**
@@ -60,8 +45,8 @@ function build() {
  * Make sure you've got your inotify watch count maxed out.
  */
 function watch() {
-    return gulp.watch([...watched], {
-        ignoreInitial: true,
+    return gulp.watch(config.watch, {
+        ignoreInitial: false,
         events: 'all',
         delay: 300,
     }, build);
@@ -70,4 +55,4 @@ function watch() {
 
 exports.default = build;
 exports.build = build;
-exports.watch = gulp.series(build, watch);
+exports.watch = watch;
